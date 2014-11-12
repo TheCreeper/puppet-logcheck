@@ -5,13 +5,17 @@ class logcheck (
 	$package_ensure = latest,
 	$package_name = 'logcheck',
 
+	$package_database_manage = true,
+	$package_database_ensure = $package_ensure,
+	$package_database_name = 'logcheck-database',
+
 	$configdir = '/etc/logcheck',
 
 	$logcheck_date = undef,
 	$logcheck_intro = undef,
 	$logcheck_report_lvl = 'server',
 	$logcheck_mailto = 'root',
-	$logcheck_fqdn = $fqdn,
+	$logcheck_fqdn = '1',
 	$logcheck_sortuniq = undef,
 	$logcheck_support_cracking_ignore = undef,
 	$logcheck_ruledir = undef,
@@ -26,6 +30,10 @@ class logcheck (
 
 	validate_string($package_ensure)
 	validate_string($package_name)
+
+	validate_bool($package_database_manage)
+	validate_string($package_database_ensure)
+	validate_string($package_database_name)
 
 	validate_string($configdir)
 
