@@ -9,6 +9,8 @@
 # Alternatively, set the format to suit your locale
 <% if @logcheck_date -%>
 DATE="<%= @logcheck_date %>"
+<% else -%>
+#DATE="$(date +'%Y-%m-%d %H:%M')"
 <% end -%>
 
 #
@@ -20,6 +22,8 @@ DATE="<%= @logcheck_date %>"
 # footer of any generated mails.
 <% if @logcheck_intro -%>
 INTRO=<%= @logcheck_intro %>
+<% else -%>
+#INTRO=1
 <% end -%>
 
 # Controls the level of filtering:
@@ -27,6 +31,8 @@ INTRO=<%= @logcheck_intro %>
 # levels of filtering. Defaults to server if not set.
 <% if @logcheck_report_lvl -%>
 REPORTLEVEL="<%= @logcheck_report_lvl %>"
+<% else -%>
+#REPORTLEVEL="server"
 <% end -%>
 
 # Controls the address mail goes to:
@@ -34,6 +40,8 @@ REPORTLEVEL="<%= @logcheck_report_lvl %>"
 # Should be set to an offsite "emailaddress@some.domain.tld"
 <% if @logcheck_mailto -%>
 SENDMAILTO="<%= @logcheck_mailto %>"
+<% else -%>
+#SENDMAILTO="logcheck"
 <% end -%>
 
 # Send the results as attachment or not.
@@ -41,11 +49,15 @@ SENDMAILTO="<%= @logcheck_mailto %>"
 # Default is 0
 <% if @logcheck_mailasattach -%>
 MAILASATTACH=<%= @logcheck_mailasattach %>
+<% else -%>
+#MAILASATTACH=0
 <% end -%>
 
 # Should the hostname of the generated mails be fully qualified?
 <% if @logcheck_fqdn -%>
 FQDN=<%= @logcheck_fqdn %>
+<% else -%>
+#FQDN=1
 <% end -%>
 
 # Controls whether "sort -u" is used on log entries (which will
@@ -54,6 +66,8 @@ FQDN=<%= @logcheck_fqdn %>
 # Alternatively, set to "1" to enable unique sorting
 <% if @logcheck_sortuniq -%>
 SORTUNIQ=<%= @logcheck_sortuniq %>
+<% else -%>
+#SORTUNIQ=1
 <% end -%>
 
 # Controls whether /etc/logcheck/cracking.ignore.d is scanned for
@@ -61,34 +75,48 @@ SORTUNIQ=<%= @logcheck_sortuniq %>
 # Alternatively, set to "1" to enable cracking.ignore support
 <% if @logcheck_support_cracking_ignore -%>
 SUPPORT_CRACKING_IGNORE=<%= @logcheck_support_cracking_ignore %>
+<% else -%>
+#SUPPORT_CRACKING_IGNORE=1
 <% end -%>
 
 # Controls the base directory for rules file location
 # This must be an absolute path
 <%if @logcheck_ruledir -%>
 RULEDIR="<%= @logcheck_ruledir %>"
+<% else -%>
+#RULEDIR="/etc/logcheck"
 <% end -%>
 
 # Controls if syslog-summary is run over each section.
 # Alternatively, set to "1" to enable extra summary.
 <% if @logcheck_syslogsummary -%>
 SYSLOGSUMMARY=<%= @logcheck_syslogsummary %>
+<% else -%>
+#SYSLOGSUMMARY=1
 <% end -%>
 
 # Controls Subject: lines on logcheck reports:
 <% if @logcheck_attacksubj -%>
 ATTACKSUBJECT="<%= @logcheck_attacksubj %>"
+<% else -%>
+#ATTACKSUBJECT="Security Alerts"
 <% end -%>
 <% if @logcheck_securitysubj -%>
 SECURITYSUBJECT="<%= @logcheck_securitysubj %>"
+<% else -%>
+#SECURITYSUBJECT="Security Events"
 <% end -%>
 <% if @logcheck_eventsubj -%>
 EVENTSSUBJECT="<%= @logcheck_eventsubj %>"
+<% else -%>
+#EVENTSSUBJECT="System Events"
 <% end -%>
 
 # Controls [logcheck] prefix on Subject: lines
 <% if @logcheck_addtag -%>
 ADDTAG="<%= @logcheck_addtag %>"
+<% else -%>
+#ADDTAG="no"
 <% end -%>
 
 # Set a different location for temporary files than /tmp
@@ -103,4 +131,6 @@ ADDTAG="<%= @logcheck_addtag %>"
 # location, such as /var/tmp
 <% if @logcheck_tmp -%>
 TMP="<%= @logcheck_tmp %>"
+<% else -%>
+#TMP="/tmp"
 <% end -%>
