@@ -39,7 +39,6 @@ SENDMAILTO="<%= @logcheck_mailto %>"
 # Send the results as attachment or not.
 # 0=not as attachment; 1=as attachment; 2=as gzip attachment
 # Default is 0
-
 <% if @logcheck_mailasattach -%>
 MAILASATTACH=<%= @logcheck_mailasattach %>
 <% end -%>
@@ -68,7 +67,7 @@ SUPPORT_CRACKING_IGNORE=<%= @logcheck_support_cracking_ignore %>
 # This must be an absolute path
 <%if @logcheck_ruledir -%>
 RULEDIR="<%= @logcheck_ruledir %>"
-<% end %>
+<% end -%>
 
 # Controls if syslog-summary is run over each section.
 # Alternatively, set to "1" to enable extra summary.
