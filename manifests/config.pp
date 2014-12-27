@@ -29,6 +29,6 @@ class logcheck::config {
 		mode => '0640',
 		owner => 'root',
 		group => 'logcheck',
-		content => template('logcheck/logcheck.conf.erb'),
+		content => template('logcheck/etc/logcheck.conf.erb'),
 	}
 }

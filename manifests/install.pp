@@ -14,4 +14,12 @@ class logcheck::install {
 			ensure => $logcheck::package_database_ensure,
 		}
 	}
+
+	if $logcheck::package_syslog_summary_manage == true {
+
+		package { $logcheck::package_syslog_summary_name:
+
+			ensure => $logcheck::package_syslog_summary_ensure,
+		}
+	}
 }
